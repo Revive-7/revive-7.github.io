@@ -1,0 +1,292 @@
+:root {
+    --bg-gradient-day: linear-gradient(120deg, rgba(108, 184, 166, 0.42), rgba(117, 160, 202, 0.4), rgba(145, 191, 163, 0.36));
+    --bg-gradient-night: linear-gradient(120deg, rgba(29, 50, 84, 0.58), rgba(48, 36, 78, 0.54), rgba(21, 58, 64, 0.5));
+    --overlay-dim-day: rgba(0, 0, 0, 0.16);
+    --overlay-dim-night: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: calibri;
+    position: relative;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url(./Assets/img/bg.webp);
+    background-position: center;
+    color: rgba(0, 0, 0, 0.568);
+    transition: color 0.4s ease;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        var(--bg-gradient-day),
+        linear-gradient(var(--overlay-dim-day), var(--overlay-dim-day));
+    opacity: 1;
+    pointer-events: none;
+    transition: background 0.45s ease;
+    z-index: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    left: -120px;
+    bottom: -120px;
+    width: clamp(360px, 50vw, 760px);
+    height: clamp(360px, 50vw, 760px);
+    background-image: url(./Assets/img/favicon.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    opacity: 0.26;
+    pointer-events: none;
+    z-index: 0;
+    filter: saturate(0.95);
+    transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+body.night-mode::before {
+    background:
+        var(--bg-gradient-night),
+        linear-gradient(var(--overlay-dim-night), var(--overlay-dim-night));
+}
+
+body.night-mode::after {
+    opacity: 0.3;
+    filter: saturate(0.9) brightness(1.02);
+}
+
+body.night-mode {
+    color: #fff;
+}
+
+nav,
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    transition: transform 0.25s ease, color 0.35s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.06);
+}
+
+body:not(.night-mode) .theme-toggle {
+    color: #111;
+}
+
+body:not(.night-mode) .theme-toggle:hover {
+    color: #000;
+}
+
+.theme-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.theme-icon-animate {
+    animation: theme-switch 0.28s ease;
+}
+
+@keyframes theme-switch {
+    0% {
+        transform: scale(0.75) rotate(-24deg);
+        opacity: 0.7;
+    }
+    60% {
+        transform: scale(1.18) rotate(12deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+nav {  
+    justify-content: space-around;
+     
+    display: flex;
+}
+nav div {
+    display: flex;
+}
+a { 
+
+    color: #000;
+    padding: 15px;
+    text-decoration: none;
+    transition: color 0.4s ease, transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+    font-size: 20px;
+}
+body.night-mode a {
+    color: #fff;
+}
+.title {    
+    text-align: center;
+}
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+body.night-mode .container {
+    background: rgba(18, 22, 32, 0.42);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+.info1 {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+}
+.info2 {
+    display: flex;
+    gap: 20px;
+    text-align: right;
+    justify-content: right;
+}
+.info p {
+    font-size: 1.16rem;
+    line-height: 1.65;
+}
+
+.lead-copy {
+    font-size: 1.28rem;
+    line-height: 1.7;
+    margin: 0;
+}
+.download {
+    text-align: center;
+    margin-top: 30px;
+}
+.db {
+    background-color: #1faf37;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.db:hover {
+    background-color: #1a7d2b;
+}
+.editions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.editions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.edition-link {
+    display: inline-block;
+}
+
+.edition-media {
+    position: relative;
+    display: inline-block;
+    width: min(100%, 300px);
+    overflow: visible;
+}
+
+.edition-image {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.soon-stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    padding: 10px 16px;
+    border: 3px solid rgba(230, 61, 61, 0.98);
+    border-radius: 8px;
+    color: rgba(230, 61, 61, 0.98);
+    background: rgba(255, 255, 255, 0.86);
+    font-weight: 800;
+    font-size: clamp(20px, 2.6vw, 34px);
+    letter-spacing: 2.5px;
+    line-height: 1;
+    white-space: nowrap;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    text-align: center;
+    transform: translate(-50%, -50%) rotate(-16deg);
+    transform-origin: center;
+    transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+body.night-mode .soon-stamp {
+    background: rgba(22, 18, 28, 0.9);
+    color: rgba(255, 110, 110, 1);
+    border-color: rgba(255, 110, 110, 1);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.edition-link:focus-visible .edition-image {
+    transform: scale(1.06);
+}
+
+.edition-link:focus-visible .soon-stamp {
+    transform: translate(-50%, -50%) rotate(-16deg) scale(1.06);
+}
+
+.edition-card[data-soon="false"] .soon-stamp {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        transform: scale(1.12);
+    }
+
+    .edition-link:hover .edition-image {
+        transform: scale(1.06);
+    }
+
+    .edition-link:hover .soon-stamp {
+        transform: translate(-50%, -50%) rotate(-16deg) scale(1.06);
+    }
+}
+
+@media (max-width: 860px) {
+    .editions-grid {
+        grid-template-columns: 1fr;
+    }
+}

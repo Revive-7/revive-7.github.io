@@ -1,106 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css" />
     <title>Revive OS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0;1">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revive OS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.webp">
 </head>
- <body>
-    <header>
-       <img src="https://github.com/Revive-7/revive-7.github.io/blob/main/logo.png?raw=true" alt="Revive OS Logo" width="100" height="100">
-        <nav class="navigation">
-           <ul>
-             <li><a href="#aboutMe"> About us</a></li>
-             <li><a href="#MyWorks"> download</a></li>
-             <li><a href="#contactMe">contact us</a></li>
-           </ul>
-        </nav>
+<body>
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to night mode">
+        <span id="themeIcon" class="material-symbols-rounded theme-icon" aria-hidden="true">dark_mode</span>
+    </button>
+    <nav>
+        <div>
+        <img src="./Assets/img/favicon.webp" alt="Logo" class="logo" height="50px" width="50px">
+        <h3>Revive </h3>
+        </div>
+        <br>
+        <div>
+            <a href="#">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            </div>
+    </nav>
+    <div class="container">
+        <h1 class="title">Revive OS</h1>
+        <h3 class="title">An OS to revive your old computer</h3>
+         <div class="info1">
+        <div class="img">
+            <img src="./Assets/img/favicon.webp" alt="Revive OS" height="300px">
+        </div>
+        <div class="info">
+        <h2>What is Revive OS?</h2>
+        <p class="lead-copy">Revive OS is a lightweight, performance-optimized Windows modification designed to extend the usability and speed of older computers.</p>
+        </div>
+    </div>
+    <div class="info2">
+        <div class="info">
+        <h2>Why use Revive OS?</h2>
+        <p>Revive OS is designed to be lightweight and fast, making it perfect for older computers that may struggle with newer operating systems. It also has a sleek and modern design, making it a great choice for anyone looking to give their old computer a fresh restart.</p>
+        </div>
+        <div class="img">
+            <img src="./Assets/img/revive-pc.png" alt="Revive OS PC" height="300px">
+        </div>
+    </div>
+        <div class="editions">
+            <h1>Editions</h1>
+            <div class="editions-grid">
+                <div class="edition-card" data-soon="false">
+                    <a class="edition-link" href="https://example.com" target="_blank" rel="noopener noreferrer">
+                        <div class="edition-media">
+                            <img class="edition-image" src="./Assets/img/revive-r10-1.webp" alt="Revive R10.1">
+                        </div>
+                    </a>
+                    <h2>Revive R10.1</h2>
+                </div>
+                <div class="edition-card" data-soon="false">
+                    <a class="edition-link" href="https://example.com" target="_blank" rel="noopener noreferrer">
+                        <div class="edition-media">
+                            <img class="edition-image" src="./Assets/img/revive-r10-0.webp" alt="Revive R10.0">
+                        </div>
+                    </a>
+                    <h2>Revive R10.0</h2>
+                </div>
+                <div class="edition-card" data-soon="false">
+                    <a class="edition-link" href="https://example.com" target="_blank" rel="noopener noreferrer">
+                        <div class="edition-media">
+                            <img class="edition-image" src="./Assets/img/revive-os-nanope.webp" alt="Revive Nanope">
+                        </div>
+                    </a>
+                    <h2>Revive Nanope (recovery OS)</h2>
+                </div>
+                <div class="edition-card" data-soon="true">
+                    <a class="edition-link" href="https://example.com" target="_blank" rel="noopener noreferrer">
+                        <div class="edition-media">
+                            <span class="soon-stamp">COMING SOON</span>
+                            <img class="edition-image" src="./Assets/img/revive-os-linux.webp" alt="Revive Linux">
+                        </div>
+                    </a>
+                    <h2>Revive Linux (coming soon)</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </header>
-       </nav>
-    <hr />
-   <section class="hero">
-     <img class="arrow" src="assets/assets/svg/arrow.svg" alt="arrow" />
-     <div class="herosup">
-      <h1 class="name">REVIVE OS</h1>       
-      <h1 class="title">we revive your pc</h1>
-      <div class="herobtns">
-         <a class="herme" href="#MyWorks">download</a>
-      </div>
-    </div>
-    <li>
-      <a href="#MyWorks">
-      <img src="laptop with boot.png" alt="os img" class="heroimg"></a></li>
-     
-   </section>
-   <section class="aboutme" id="aboutMe" >
-<li>
-      <a href="#MyWorks" > 
-     <img src="pc.png" alt="aboutme image" class="heroimg" /></a></li>
-      <div class="textcontainer">
-         <div class="texttitel">
-            <h1 class="aboutname">about</h1>
-            <h1 class="abouttitle"> us</h1>
-            <img src="assets/assets/svg/lightbulb.svg " class="light" />
-         </div>
-         <p class="aboutmepar">
-           Welcome to the power of real computers,
-            where we revive your computers.
-         </p>
-      </div>
-   </section>
-   <div class="Works" id="MyWorks">
-      <div class="WorksContainer">
-         <div class="PROJECTTITLE">
-            
-            <h1 class="abouttitle">down</h1>
-            <h1 class="aboutname">load</h1>
-         </div>
-         <ul>
-            <li>
-               
-               <a  class="R1Ob" href="https://drive.usercontent.google.com/download?id=1N0clkVpJzYDMEuQR_gYwJyXSdKS7xUp7&export=download&authuser=0&confirm=t&uuid=2fb919c7-bfc1-4003-a6d5-fa0c030d7b96&at=APcXIO1NhPQMdsNqC5kf49kHODmv%3A1772462205152" download 
-               ><img src="logo.png" 
-            </li>
-            <li>
-               <a class="beta" href="64-bit (1).png" download
-               ><img src="64-bit (1).png" ></a>
-            </li>
-            <li>
-               <a class="isoUltra" href="ultra.png" download 
-               ><img src="ultra.png" /></a> 
-            </li>
-         <ul>
-      </div> 
-  </section>
+    <script>
+        (function () {
+            const toggleButton = document.getElementById("themeToggle");
+            const themeIcon = document.getElementById("themeIcon");
+            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-  <section class="contactContainer"  id="contactMe">
-<div class="contactTitle">
-   <h1 class="aboutname">Contact</h1>
-   <h1 class="abouttitle">us</h1>
-</div>
-<div class="Contact">
-    <div class="emailandphone">
-     <img src="assets/assets/svg/Email.svg" />
-      <h3>ishaktech11@gmail.com</h3>
-    </div>
-    <div class="emailandphone">
-      <img src="assets/assets/svg/phone.svg" />
-      <h3>+? ??</h3>
-    </div>
-</div>
-   <div class="Members">
-      <h1 class="aboutname">Members</h1>
-   </div>
-   <div class="Members">
-      <a href="http://www.youtube.com/@NANO_SOFTWARE" target="_blank"
-       <img src="Untitled img.png">
-   </div>
-      </section>
-       <img src="https://github.com/Revive-7/revive-7.github.io/blob/main/logo.png?raw=true" alt="Revive OS Logo" width="100" height="100">
-      <h2 class="aboutname">REVIVE OS</h2>
-    </div>
- </body>
+            function updateToggleState() {
+                const isNightMode = document.body.classList.contains("night-mode");
+                themeIcon.textContent = isNightMode ? "light_mode" : "dark_mode";
+                toggleButton.setAttribute(
+                    "aria-label",
+                    isNightMode ? "Switch to day mode" : "Switch to night mode"
+                );
+            }
+
+            function applyTheme(mode) {
+                document.body.classList.toggle("night-mode", mode === "night");
+                updateToggleState();
+            }
+
+            const savedTheme = localStorage.getItem("theme-mode");
+            if (savedTheme === "night" || savedTheme === "day") {
+                applyTheme(savedTheme);
+            } else {
+                applyTheme(systemTheme.matches ? "night" : "day");
+            }
+
+            systemTheme.addEventListener("change", function (event) {
+                if (!localStorage.getItem("theme-mode")) {
+                    applyTheme(event.matches ? "night" : "day");
+                }
+            });
+
+            toggleButton.addEventListener("click", function () {
+                const nextMode = document.body.classList.contains("night-mode") ? "day" : "night";
+                applyTheme(nextMode);
+                localStorage.setItem("theme-mode", nextMode);
+                themeIcon.classList.remove("theme-icon-animate");
+                void themeIcon.offsetWidth;
+                themeIcon.classList.add("theme-icon-animate");
+            });
+        })();
+    </script>
+</body>
+
 </html>
-

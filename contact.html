@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0;1">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.webp">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to night mode">
+        <span id="themeIcon" class="material-symbols-rounded theme-icon" aria-hidden="true">dark_mode</span>
+    </button>
+    <nav>
+        <div>
+        <img src="./Assets/img/favicon.webp" alt="Logo" class="logo" height="50px" width="50px">
+        <h3>Revive </h3>
+        </div>
+        <br>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#">Contact</a>
+            </div>
+    </nav>
+    <div class="container">
+    <h1>Contacts</h1>
+    <p>For any feedback, please contact us at:</p>
+    <ul>
+        <li>Email: <a href="mailto:ishaktech11@gmail.com">ishaktech11@gmail.com</a></li>
+        <li>Discord: <a href="https://discord.gg/SnZdnUJFXf" target="_blank">Revive OS server</a></li>
+    </ul>
+    </div>
+
+    <script>
+        (function () {
+            const toggleButton = document.getElementById("themeToggle");
+            const themeIcon = document.getElementById("themeIcon");
+            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+            function updateToggleState() {
+                const isNightMode = document.body.classList.contains("night-mode");
+                themeIcon.textContent = isNightMode ? "light_mode" : "dark_mode";
+                toggleButton.setAttribute(
+                    "aria-label",
+                    isNightMode ? "Switch to day mode" : "Switch to night mode"
+                );
+            }
+
+            function applyTheme(mode) {
+                document.body.classList.toggle("night-mode", mode === "night");
+                updateToggleState();
+            }
+
+            const savedTheme = localStorage.getItem("theme-mode");
+            if (savedTheme === "night" || savedTheme === "day") {
+                applyTheme(savedTheme);
+            } else {
+                applyTheme(systemTheme.matches ? "night" : "day");
+            }
+
+            systemTheme.addEventListener("change", function (event) {
+                if (!localStorage.getItem("theme-mode")) {
+                    applyTheme(event.matches ? "night" : "day");
+                }
+            });
+
+            toggleButton.addEventListener("click", function () {
+                const nextMode = document.body.classList.contains("night-mode") ? "day" : "night";
+                applyTheme(nextMode);
+                localStorage.setItem("theme-mode", nextMode);
+                themeIcon.classList.remove("theme-icon-animate");
+                void themeIcon.offsetWidth;
+                themeIcon.classList.add("theme-icon-animate");
+            });
+        })();
+    </script>
+</body>
+</html>
